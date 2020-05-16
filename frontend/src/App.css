@@ -1,0 +1,22 @@
+.form-challenge {
+  display: flex;
+  flex-direction: column;
+  background: #aaa;
+  width: 400px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group__disabled {
+  display: flex;
+  flex-direction: row;
+}
+
+#mapid {
+  height: 180px;
+}
