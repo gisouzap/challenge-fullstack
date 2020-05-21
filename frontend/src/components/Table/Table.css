@@ -1,7 +1,7 @@
 .table-wrapper {
   display: grid;
   grid-area: table;
-  margin: 30px auto;
+  margin: 15px auto;
   width: 800px;
 }
 

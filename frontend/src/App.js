@@ -3,11 +3,13 @@ import './App.css';
 import LeafLet from './components/LeafLet/LeafLet';
 import Form from './components/Form/Form';
 import Table from './components/Table/Table';
+import Info from './components/Info/Info';
+import Footer from './components/Footer/Footer';
 import UIContainer from './UI/Container/Container';
 import axios from 'axios';
-const url = 'http://localhost:3001/deliveries';
 
 function App() {
+  const url = 'http://localhost:3001/deliveries';
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -20,6 +22,7 @@ function App() {
     <UIContainer>
       <Form />
       <LeafLet />
+      <Info />
       <Table>
         {user.map((user, key) => {
           return (
@@ -35,6 +38,7 @@ function App() {
           );
         })}
       </Table>
+      <Footer />
     </UIContainer>
   );
 }

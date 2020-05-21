@@ -85,7 +85,7 @@ const Form = () => {
           type="text"
           id="weight"
           name="weight"
-          value={user.value}
+          value={user.weight}
           placeholder="Peso da Entrega"
           onChange={onChange}
         />

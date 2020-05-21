@@ -2,5 +2,7 @@
   display: grid;
   grid-template-areas:
     'form map'
-    'form table';
+    'form info'
+    '. table'
+    'footer footer';
 }

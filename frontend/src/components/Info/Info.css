@@ -1,0 +1,7 @@
+.info-wrapper {
+  grid-area: info;
+  margin: 10px auto;
+  color: rgb(114, 112, 112);
+  font-weight: 500;
+  font-size: 0.9rem;
+}

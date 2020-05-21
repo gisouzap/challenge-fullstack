@@ -1,0 +1,23 @@
+.footer-wrapper {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-icon {
+  color: rgb(187, 32, 32);
+}
+
+.footer-span {
+  color: #009879;
+}
+
+footer span {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.footer-span__bold,
+.footer-span {
+  font-weight: 600;
+}
