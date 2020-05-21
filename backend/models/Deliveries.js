@@ -21,7 +21,6 @@ const DeliveriesSchema = new mongoose.Schema({
       lat: Number,
       lng: Number,
     },
-    required: true,
   },
 });
 
