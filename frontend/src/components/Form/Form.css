@@ -1,3 +1,8 @@
+.form-wrapper {
+  display: grid;
+  grid-area: form;
+}
+
 .challenge-form {
   background-color: rgb(221, 221, 221);
   display: flex;

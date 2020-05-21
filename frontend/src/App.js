@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import LeafLet from './components/LeafLet/LeafLet';
 import Form from './components/Form/Form';
+import Table from './components/Table/Table';
 import UIContainer from './UI/Container/Container';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <UIContainer>
       <Form />
       <LeafLet />
+      <Table />
     </UIContainer>
   );
 }

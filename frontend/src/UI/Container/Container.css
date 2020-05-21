@@ -1,4 +1,6 @@
 .container-wrapper {
   display: grid;
-  grid-template-areas: 'form map';
+  grid-template-areas:
+    'form map'
+    '. table';
 }
