@@ -1,0 +1,4 @@
+.container-wrapper {
+  display: grid;
+  grid-template-areas: 'form map';
+}

@@ -1,14 +1,15 @@
 import React from 'react';
+import './App.css';
 import LeafLet from './components/LeafLet/LeafLet';
 import Form from './components/Form/Form';
-import './App.css';
+import UIContainer from './UI/Container/Container';
 
 function App() {
   return (
-    <>
-      <LeafLet />
+    <UIContainer>
       <Form />
-    </>
+      <LeafLet />
+    </UIContainer>
   );
 }
 
