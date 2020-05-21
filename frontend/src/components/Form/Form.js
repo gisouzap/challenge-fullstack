@@ -77,6 +77,7 @@ const Form = () => {
           type="text"
           id="name"
           name="name"
+          value={user.name}
           placeholder="Nome do Cliente"
           onChange={onChange}
         />
@@ -84,6 +85,7 @@ const Form = () => {
           type="text"
           id="weight"
           name="weight"
+          value={user.value}
           placeholder="Peso da Entrega"
           onChange={onChange}
         />
