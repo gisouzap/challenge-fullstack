@@ -1,8 +1,8 @@
 import React from 'react';
-import './Map.css';
+import './LeafLet.css';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
-const Map = () => {
+const LeafLet = () => {
   return (
     <div>
       <Map className="leaflet-map" center={[-23.5489, -46.6388]} zoom={6}>
@@ -18,4 +18,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default LeafLet;
