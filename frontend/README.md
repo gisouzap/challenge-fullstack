@@ -33,7 +33,7 @@ Agora é hora de dar git clone!
 Crie uma pasta e navegue até ela, pelo terminal, insira:
 
 ```
-git clone https://github.com/gisellesouz/desafioVizir.git
+git clone git@github.com:gisouzap/challenge-fullstack.git
 ```
 
 Entre na pasta frontend:
