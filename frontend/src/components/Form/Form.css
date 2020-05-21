@@ -33,7 +33,7 @@
 .form-address__search input {
   border: none;
   border-radius: 4px;
-  padding: 4px;
+  padding: 4px 0px;
 }
 
 .form-button__search {
@@ -44,6 +44,10 @@
   transition: 200ms;
   transform: scale(1.1);
   font-weight: 600;
+}
+
+.input-disabled {
+  text-align: center;
 }
 
 .form-button__reset,

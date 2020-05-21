@@ -24,11 +24,23 @@ const Form = () => {
           </button>
         </div>
 
-        <input type="text" disabled value={'LATITUDE'} />
-        <input type="text" disabled value={'LONGITUDE'} />
+        <input
+          type="text"
+          className="input-disabled"
+          disabled
+          value={'LATITUDE'}
+        />
+        <input
+          type="text"
+          className="input-disabled"
+          disabled
+          value={'LONGITUDE'}
+        />
+
         <button className="form-button__save" type="submit">
           CADASTRAR CLIENTE
         </button>
+
         <button className="form-button__reset">RESETAR CADASTRO</button>
       </form>
     </div>
