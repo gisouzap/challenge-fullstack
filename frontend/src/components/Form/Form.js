@@ -43,25 +43,27 @@ const Form = () => {
 
   const onSave = (ev) => {
     ev.preventDefault();
-    onClear();
-    axios.post(url, {
-      name: user.name,
-      weight: user.weight,
-      address: userAddress,
-    });
+    try {
+      axios.post(url, {
+        name: user.name,
+        weight: user.weight,
+        address: userAddress,
+      });
+      onClear();
+    } catch (error) {
+      console.log('Erro ao cadastrar novo cliente!');
+    }
   };
 
   const onDelete = (ev) => {
     ev.preventDefault();
-    axios
-      .delete(url, {
-        params: {
-          name: user.name,
-          weight: user.weight,
-          address: userAddress,
-        },
-      })
-      .then(() => console.log('success'));
+    axios.delete(url, {
+      params: {
+        name: user.name,
+        weight: user.weight,
+        address: userAddress,
+      },
+    });
   };
 
   const onClear = () => {
@@ -77,7 +79,7 @@ const Form = () => {
           type="text"
           id="name"
           name="name"
-          value={user.name}
+          value={user.name || ''}
           placeholder="Nome do Cliente"
           onChange={onChange}
         />
@@ -85,14 +87,14 @@ const Form = () => {
           type="text"
           id="weight"
           name="weight"
-          value={user.weight}
+          value={user.weight || ''}
           placeholder="Peso da Entrega"
           onChange={onChange}
         />
         <div className="form-address__search">
           <input
             type="text"
-            value={address}
+            value={address || ''}
             placeholder="Endereço do Cliente"
             onChange={(ev) => setAddress(ev.target.value)}
           />

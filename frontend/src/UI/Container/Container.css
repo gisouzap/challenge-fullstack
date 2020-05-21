@@ -3,6 +3,6 @@
   grid-template-areas:
     'form map'
     'form info'
-    '. table'
+    'form table'
     'footer footer';
 }
