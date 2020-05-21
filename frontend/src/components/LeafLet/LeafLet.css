@@ -1,6 +1,7 @@
 .leaflet-map {
   display: grid;
   grid-area: map;
+  margin: 0 auto;
   height: 330px;
   width: 600px;
 }

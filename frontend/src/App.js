@@ -10,7 +10,17 @@ function App() {
     <UIContainer>
       <Form />
       <LeafLet />
-      <Table />
+      <Table>
+        <tr>
+          <td>Teste</td>
+          <td>Teste</td>
+          <td>Teste</td>
+          <td>Teste</td>
+          <td>Teste</td>
+          <td>Teste</td>
+          <td>Teste</td>
+        </tr>
+      </Table>
     </UIContainer>
   );
 }

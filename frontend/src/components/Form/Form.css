@@ -1,6 +1,7 @@
 .form-wrapper {
   display: grid;
   grid-area: form;
+  margin: auto;
 }
 
 .challenge-form {
@@ -11,6 +12,7 @@
   height: 320px;
   border: 1px solid #aaa;
   padding: 5px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 .challenge-form input {
@@ -54,7 +56,7 @@
   padding: 8px;
   margin: 5px 0;
   color: #fff;
-  background-color: rgb(14, 177, 122);
+  background-color: #009879;
   border: solid 1px #ccc;
   border-radius: 4px;
   text-align: center;
