@@ -1,4 +1,5 @@
 import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import './App.css';
 
 function App() {
@@ -28,7 +29,13 @@ function App() {
         <button className="form-save">Cadastrar cliente</button>
         <button className="form-reset">Resetar Cadastros</button>
       </form>
-      <div id="mapid"></div>
+      <Map center={[-23.54, -46.63]} zoom={12}>
+        {' '}
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+      </Map>
     </div>
   );
 }

@@ -17,6 +17,8 @@
   flex-direction: row;
 }
 
-#mapid {
-  height: 180px;
+.leaflet-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
 }
