@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Info.css';
+import { useLoad } from '../../context/Load';
 import axios from 'axios';
 
 const Info = () => {
   const url = 'http://localhost:3001/deliveries';
+  const { load } = useLoad();
   const [deliveries, setDeliveries] = useState({
     totalUsers: 0,
     totalWeight: 0,
     mediumTicket: 0,
   });
+
   useEffect(() => {
     axios.get(url).then((response) => {
       const users = response.data;
@@ -24,7 +27,7 @@ const Info = () => {
         });
       }
     });
-  }, [deliveries]);
+  }, [load]);
 
   return (
     <div className="info-wrapper">

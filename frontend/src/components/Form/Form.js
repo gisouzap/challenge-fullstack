@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './Form.css';
+import { useLoad } from '../../context/Load';
 import axios from 'axios';
 
 const url = 'http://localhost:3001/deliveries';
 
 const Form = () => {
+  const { load, setLoad } = useLoad();
   const [user, setUser] = useState([]);
   const [address, setAddress] = useState([]);
   const [position, setPosition] = useState([]);
@@ -50,6 +52,7 @@ const Form = () => {
         address: userAddress,
       });
       onClear();
+      setLoad(!load);
     } catch (error) {
       console.log('Erro ao cadastrar novo cliente!');
     }
@@ -57,13 +60,18 @@ const Form = () => {
 
   const onDelete = (ev) => {
     ev.preventDefault();
-    axios.delete(url, {
-      params: {
-        name: user.name,
-        weight: user.weight,
-        address: userAddress,
-      },
-    });
+    try {
+      axios.delete(url, {
+        params: {
+          name: user.name,
+          weight: user.weight,
+          address: userAddress,
+        },
+      });
+      setLoad(!load);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onClear = () => {
