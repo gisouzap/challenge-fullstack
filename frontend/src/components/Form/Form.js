@@ -19,7 +19,7 @@ const Form = () => {
       .get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
           address: address,
-          key: 'AIzaSyCUN5lpFhSKu2xRPdIAMx0D6jZli-Pwr5c',
+          key: process.env.REACT_APP_API_GEOCODE,
         },
       })
       .then((resp) => {
@@ -51,7 +51,9 @@ const Form = () => {
         },
       });
     } else {
-      setFailMessage('Endereço não encontrado! ');
+      setFailMessage(
+        'Endereço não encontrado! Inclua complemento, n° da rua, bairro, etc. '
+      );
     }
     setPosition([latLng.lat, latLng.lng]);
   };
