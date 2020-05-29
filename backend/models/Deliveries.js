@@ -10,12 +10,12 @@ const DeliveriesSchema = new mongoose.Schema({
     required: true,
   },
   address: {
-    route: String,
-    number_street: Number,
-    subpremise: String,
-    political: String,
-    administrative_area_level_2: String,
-    administrative_area_level_2: String,
+    street: String,
+    street_number: Number,
+    complement: String,
+    neighbourhood: String,
+    city: String,
+    state: String,
     country: String,
     geolocation: {
       lat: Number,
