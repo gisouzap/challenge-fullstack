@@ -4,9 +4,10 @@ Desafio feito pela empresa RoutEasy para o seu processo seletivo de desenvolvedo
 
 ### Desenvolvido com:
 
-- React ^16.13.1
-- LeafLet ^1.6.0
-- React-Leaflet ^2.7.0
+- React (16.13.1)
+- LeafLet (1.6.0)
+- React-Leaflet (2.7.0)
+- Axios (0.19.2)
 - Google Geocode API
 
 #### Instalação
