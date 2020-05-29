@@ -4,16 +4,14 @@ Desafio feito pela empresa RoutEasy para o seu processo seletivo de desenvolvedo
 
 ### Desenvolvido com:
 
-- ReactJS
-- LeafLet
+- React ^16.13.1
+- LeafLet ^1.6.0
+- React-Leaflet ^2.7.0
 - Google Geocode API
 
-### Pré-requisitos
-
-Para iniciar o projeto é preciso ter o yarn instalado em sua máquina.
-Os exemplos abaixo são para usuários Linux.
-
 #### Instalação
+
+Para usuários linux:
 
 Em seu terminal, insira os comandos abaixo para adicionar o repositório do yarn:
 
@@ -58,9 +56,3 @@ yarn start
 ```
 
 Feito isso, a aplicação deve abrir em um navegador usando o endereço localhost:3000.
-
-### Melhorias futuras:
-
-- Toast de sucesso / falha no cadastro de novos clientes
-- Melhoramento da interface e disposição dos componentes
-- Tratamento de erros
