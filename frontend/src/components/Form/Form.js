@@ -23,32 +23,37 @@ const Form = () => {
         },
       })
       .then((resp) => {
-        const results = resp.data.results[0].address_components;
-        const latLng = resp.data.results[0].geometry.location;
-        const formattedAddress = resp.data.results[0].formatted_address;
-
-        if (results.length >= 8) {
-          setFailMessage('');
-          setSuccessMessage('Endereço encontrado: ' + formattedAddress);
-          setUserAddress({
-            street: results[2].long_name,
-            street_number: results[1].long_name,
-            complement: results[0].long_name,
-            neighbourhood: results[3].long_name,
-            city: results[4].long_name,
-            state: results[5].long_name,
-            country: results[6].long_name,
-            geolocation: {
-              lat: latLng.lat,
-              lng: latLng.lng,
-            },
-          });
-        } else {
-          onFailedSearch();
-        }
-        setPosition([latLng.lat, latLng.lng]);
+        onSetAddress(resp);
       })
       .catch((error) => console.log(error));
+  };
+
+  const onSetAddress = (resp) => {
+    const results = resp.data.results[0].address_components;
+    const latLng = resp.data.results[0].geometry.location;
+    const formattedAddress = resp.data.results[0].formatted_address;
+
+    if (results.length >= 8) {
+      setFailMessage('');
+      setSuccessMessage('Endereço encontrado: ' + formattedAddress);
+
+      setUserAddress({
+        street: results[2].long_name,
+        street_number: results[1].long_name,
+        complement: results[0].long_name,
+        neighbourhood: results[3].long_name,
+        city: results[4].long_name,
+        state: results[5].long_name,
+        country: results[6].long_name,
+        geolocation: {
+          lat: latLng.lat,
+          lng: latLng.lng,
+        },
+      });
+    } else {
+      setFailMessage('Endereço não encontrado! ');
+    }
+    setPosition([latLng.lat, latLng.lng]);
   };
 
   const onChange = (ev) => {
@@ -86,13 +91,6 @@ const Form = () => {
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const onFailedSearch = () => {
-    setFailMessage(
-      'Inclua o endereço completo. Ex: complemento, n° da rua, etc.'
-    );
-    setSuccessMessage('');
   };
 
   const onClear = () => {
