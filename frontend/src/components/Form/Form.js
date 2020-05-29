@@ -11,9 +11,10 @@ const Form = () => {
   const [address, setAddress] = useState([]);
   const [position, setPosition] = useState([]);
   const [userAddress, setUserAddress] = useState([]);
-  const [message, setMessage] = useState('');
+  const [failMessage, setFailMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const getGeocode = () => {
+  const onSearch = () => {
     axios
       .get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
@@ -24,9 +25,11 @@ const Form = () => {
       .then((resp) => {
         const results = resp.data.results[0].address_components;
         const latLng = resp.data.results[0].geometry.location;
+        const formattedAddress = resp.data.results[0].formatted_address;
 
         if (results.length >= 8) {
-          setMessage('');
+          setFailMessage('');
+          setSuccessMessage('Endereço encontrado: ' + formattedAddress);
           setUserAddress({
             street: results[2].long_name,
             street_number: results[1].long_name,
@@ -86,14 +89,18 @@ const Form = () => {
   };
 
   const onFailedSearch = () => {
-    setMessage('Inclua o endereço completo. Ex: complemento, n° da rua, etc.');
+    setFailMessage(
+      'Inclua o endereço completo. Ex: complemento, n° da rua, etc.'
+    );
+    setSuccessMessage('');
   };
 
   const onClear = () => {
     setUser({ name: '', weight: '' });
     setAddress('');
     setPosition({ 0: '', 1: '' });
-    setMessage('');
+    setFailMessage('');
+    setSuccessMessage('');
   };
 
   return (
@@ -126,12 +133,13 @@ const Form = () => {
           <button
             className="form-button__search"
             type="button"
-            onClick={getGeocode}
+            onClick={onSearch}
           >
             BUSCAR
           </button>
         </div>
-        <span class="form-address__failed">{message}</span>
+        <span className="form-address__failed">{failMessage}</span>
+        <span className="form-address__succeded">{successMessage}</span>
 
         <input
           type="text"
