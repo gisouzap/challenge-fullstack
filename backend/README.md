@@ -4,9 +4,9 @@ Desafio feito pela empresa RoutEasy para o seu processo seletivo de desenvolvedo
 
 ### Desenvolvido com:
 
-- NodeJs
-- Express
-- MongoDB
+- NodeJs (12.16.3)
+- Express (4.17.1)
+- Mongoose (5.9.15)
 
 ### Pré-requisitos
 
