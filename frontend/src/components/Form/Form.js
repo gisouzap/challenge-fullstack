@@ -11,6 +11,7 @@ const Form = () => {
   const [address, setAddress] = useState([]);
   const [position, setPosition] = useState([]);
   const [userAddress, setUserAddress] = useState([]);
+  const [message, setMessage] = useState('');
 
   const getGeocode = () => {
     axios
@@ -22,18 +23,27 @@ const Form = () => {
       })
       .then((resp) => {
         const results = resp.data.results[0].address_components;
-        const lat = resp.data.results[0].geometry.location.lat;
-        const lng = resp.data.results[0].geometry.location.lng;
-        setPosition([lat, lng]);
-        let addresFinal = {};
-        results.map((item) => (addresFinal[item.types[0]] = item.long_name));
+        const latLng = resp.data.results[0].geometry.location;
 
-        addresFinal.geolocation = {
-          lat: lat,
-          lng: lng,
-        };
-
-        setUserAddress(addresFinal);
+        if (results.length >= 8) {
+          setMessage('');
+          setUserAddress({
+            street: results[2].long_name,
+            street_number: results[1].long_name,
+            complement: results[0].long_name,
+            neighbourhood: results[3].long_name,
+            city: results[4].long_name,
+            state: results[5].long_name,
+            country: results[6].long_name,
+            geolocation: {
+              lat: latLng.lat,
+              lng: latLng.lng,
+            },
+          });
+        } else {
+          onFailedSearch();
+        }
+        setPosition([latLng.lat, latLng.lng]);
       })
       .catch((error) => console.log(error));
   };
@@ -54,7 +64,7 @@ const Form = () => {
       onClear();
       setLoad(!load);
     } catch (error) {
-      console.log('Erro ao cadastrar novo cliente!');
+      console.log('Erro ao cadastrar novo cliente!' + error);
     }
   };
 
@@ -68,16 +78,22 @@ const Form = () => {
           address: userAddress,
         },
       });
+      onClear();
       setLoad(!load);
     } catch (err) {
       console.log(err);
     }
   };
 
+  const onFailedSearch = () => {
+    setMessage('Inclua o endereço completo. Ex: complemento, n° da rua, etc.');
+  };
+
   const onClear = () => {
     setUser({ name: '', weight: '' });
     setAddress('');
     setPosition({ 0: '', 1: '' });
+    setMessage('');
   };
 
   return (
@@ -106,6 +122,7 @@ const Form = () => {
             placeholder="Endereço do Cliente"
             onChange={(ev) => setAddress(ev.target.value)}
           />
+
           <button
             className="form-button__search"
             type="button"
@@ -114,6 +131,7 @@ const Form = () => {
             BUSCAR
           </button>
         </div>
+        <span class="form-address__failed">{message}</span>
 
         <input
           type="text"

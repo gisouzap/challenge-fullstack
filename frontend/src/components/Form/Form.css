@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   width: 280px;
-  height: 320px;
+  height: auto;
   border: 1px solid #aaa;
   padding: 5px 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -34,6 +34,13 @@
   border: none;
   border-radius: 4px;
   padding: 4px 0px;
+}
+
+.form-address__failed {
+  font-size: 0.8em;
+  padding: 4px;
+  text-align: center;
+  color: rgb(173, 6, 6);
 }
 
 .form-button__search {

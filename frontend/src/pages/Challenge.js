@@ -30,8 +30,8 @@ const ChallengePage = () => {
             return (
               <tr key={key}>
                 <td>{user.name}</td>
-                <td>{user.address.route}</td>
-                <td>{user.address.administrative_area_level_2}</td>
+                <td>{user.address.street}</td>
+                <td>{user.address.city}</td>
                 <td>{user.address.country}</td>
                 <td>{user.weight}</td>
                 <td>{user.address.geolocation.lat}</td>

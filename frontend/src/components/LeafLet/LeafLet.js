@@ -16,6 +16,8 @@ const LeafLet = () => {
     });
   }, [load]);
 
+  console.log(user);
+
   return (
     <div>
       <Map className="leaflet-map" center={[-23.5489, -46.6388]} zoom={10}>
